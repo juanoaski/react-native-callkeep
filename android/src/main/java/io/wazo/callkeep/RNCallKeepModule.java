@@ -435,13 +435,15 @@ public class RNCallKeepModule extends ReactContextBaseJavaModule implements Life
     }
 
     @ReactMethod
-    public void displayIncomingCall(String uuid, String number, String callerName) {
-        this.displayIncomingCall(uuid, number, callerName, false, null);
-    }
+    public void displayIncomingCall(
+        String uuid,
+        String number,
+        String callerName,
+        @Nullable Boolean hasVideo
+    ) {
+        boolean video = hasVideo != null ? hasVideo : false;
 
-    @ReactMethod
-    public void displayIncomingCall(String uuid, String number, String callerName, boolean hasVideo) {
-        this.displayIncomingCall(uuid, number, callerName, hasVideo, null);
+        this.displayIncomingCall(uuid, number, callerName, video, null);
     }
 
     public void displayIncomingCall(String uuid, String number, String callerName, boolean hasVideo, @Nullable Bundle payload) {
@@ -484,13 +486,15 @@ public class RNCallKeepModule extends ReactContextBaseJavaModule implements Life
     }
 
     @ReactMethod
-    public void startCall(String uuid, String number, String callerName) {
-        this.startCall(uuid, number, callerName, false, null);
-    }
+    public void displayIncomingCall(
+        String uuid,
+        String number,
+        String callerName,
+        @Nullable Boolean hasVideo
+    ) {
+        boolean video = hasVideo != null ? hasVideo : false;
 
-    @ReactMethod
-    public void startCall(String uuid, String number, String callerName, boolean hasVideo) {
-        this.startCall(uuid, number, callerName, hasVideo, null);
+        this.startCall(uuid, number, callerName, video, null);
     }
 
     public void startCall(String uuid, String number, String callerName, boolean hasVideo, @Nullable Bundle payload) {
